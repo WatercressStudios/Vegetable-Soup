@@ -125,6 +125,7 @@ MonoBehaviour:
   BottomRight: 0
   BottomLeft: 0
   GoldOffset: 0
+  DropOffset: 0
   EnemyTrigger: 0
   TeleportTrigger: 0
   GoalCheckTrigger: 0

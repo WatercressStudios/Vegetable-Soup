@@ -12,7 +12,9 @@ public class TileBehaviour : MonoBehaviour {
     [SerializeField]
     public bool BottomLeft;
     [SerializeField]
-    public int GoldOffset;
+    public bool GoldOffset;
+    [SerializeField]
+    public bool DropOffset;
     [SerializeField]
     public bool EnemyTrigger;
     [SerializeField]
