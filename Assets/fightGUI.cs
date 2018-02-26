@@ -6,14 +6,15 @@ public class fightGUI : MonoBehaviour {
 
     public static fightGUI _instance;
     public bool pressed = false;
-    public int roll_button_width = 100;
-    public int roll_button_height = 30;
-    public int roll_button_x_coord = Screen.width - (Screen.width / 2) - 50;
-    public int roll_button_y_coord = Screen.height - (Screen.height / 2) - 15;
+
+    [SerializeField]
+    private static int roll_button_width = 100;
+    private static int roll_button_height = 30;
+    private int roll_button_x_coord = Screen.width - (Screen.width / 2) - (roll_button_width/2);
+    private int roll_button_y_coord = Screen.height - (Screen.height / 2) - (roll_button_height/2);
 
     void OnGUI()
     {
-        // Rect(*x-coord, *y-coord, *x-width, *y-width)
         if (GUI.Button(new Rect(roll_button_x_coord, roll_button_y_coord, roll_button_width, roll_button_height), "Click to Roll"))
         {
             pressed = !pressed;
