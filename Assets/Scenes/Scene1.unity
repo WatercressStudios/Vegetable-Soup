@@ -113,22 +113,16 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &2578648 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1857221263140412, guid: 211d5aec3dc069448af03dd864a671ef,
+    type: 2}
+  m_PrefabInternal: {fileID: 867160271}
 --- !u!1 &13326379 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1857221263140412, guid: 211d5aec3dc069448af03dd864a671ef,
     type: 2}
   m_PrefabInternal: {fileID: 1986680102}
---- !u!114 &13326385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 13326379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af592496d466bc8419f38fb098abb7b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &67542785
 Prefab:
   m_ObjectHideFlags: 0
@@ -252,6 +246,11 @@ Transform:
   m_Father: {fileID: 974852680}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 30, y: -45, z: 0}
+--- !u!1 &96254267 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1857221263140412, guid: 211d5aec3dc069448af03dd864a671ef,
+    type: 2}
+  m_PrefabInternal: {fileID: 257270120}
 --- !u!1001 &114533064
 Prefab:
   m_ObjectHideFlags: 0
@@ -310,6 +309,11 @@ Prefab:
       propertyPath: EnemyTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114253714130099814, guid: 211d5aec3dc069448af03dd864a671ef,
+        type: 2}
+      propertyPath: Tile
+      value: 
+      objectReference: {fileID: 1965743886}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 211d5aec3dc069448af03dd864a671ef, type: 2}
   m_IsPrefabParent: 0
@@ -376,12 +380,22 @@ Prefab:
       propertyPath: EnemyTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114253714130099814, guid: 211d5aec3dc069448af03dd864a671ef,
+        type: 2}
+      propertyPath: Tile
+      value: 
+      objectReference: {fileID: 183956640}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 211d5aec3dc069448af03dd864a671ef, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &158033723 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4637896903420434, guid: 211d5aec3dc069448af03dd864a671ef,
+    type: 2}
+  m_PrefabInternal: {fileID: 158033722}
+--- !u!1 &183956640 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1857221263140412, guid: 211d5aec3dc069448af03dd864a671ef,
     type: 2}
   m_PrefabInternal: {fileID: 158033722}
 --- !u!1001 &257270120
@@ -442,6 +456,11 @@ Prefab:
       propertyPath: GoldOffset
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114253714130099814, guid: 211d5aec3dc069448af03dd864a671ef,
+        type: 2}
+      propertyPath: Tile
+      value: 
+      objectReference: {fileID: 96254267}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 211d5aec3dc069448af03dd864a671ef, type: 2}
   m_IsPrefabParent: 0
@@ -508,6 +527,11 @@ Prefab:
       propertyPath: DropOffset
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114253714130099814, guid: 211d5aec3dc069448af03dd864a671ef,
+        type: 2}
+      propertyPath: Tile
+      value: 
+      objectReference: {fileID: 1125635361}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 211d5aec3dc069448af03dd864a671ef, type: 2}
   m_IsPrefabParent: 0
@@ -614,6 +638,11 @@ Prefab:
       propertyPath: TeleportTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114253714130099814, guid: 211d5aec3dc069448af03dd864a671ef,
+        type: 2}
+      propertyPath: Tile
+      value: 
+      objectReference: {fileID: 901312346}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 211d5aec3dc069448af03dd864a671ef, type: 2}
   m_IsPrefabParent: 0
@@ -622,6 +651,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4637896903420434, guid: 211d5aec3dc069448af03dd864a671ef,
     type: 2}
   m_PrefabInternal: {fileID: 479496360}
+--- !u!1 &595776779 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1857221263140412, guid: 211d5aec3dc069448af03dd864a671ef,
+    type: 2}
+  m_PrefabInternal: {fileID: 994220744}
 --- !u!1001 &643020142
 Prefab:
   m_ObjectHideFlags: 0
@@ -680,6 +714,11 @@ Prefab:
       propertyPath: EnemyTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114253714130099814, guid: 211d5aec3dc069448af03dd864a671ef,
+        type: 2}
+      propertyPath: Tile
+      value: 
+      objectReference: {fileID: 1972712538}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 211d5aec3dc069448af03dd864a671ef, type: 2}
   m_IsPrefabParent: 0
@@ -688,6 +727,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4637896903420434, guid: 211d5aec3dc069448af03dd864a671ef,
     type: 2}
   m_PrefabInternal: {fileID: 643020142}
+--- !u!1 &692132248 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1857221263140412, guid: 211d5aec3dc069448af03dd864a671ef,
+    type: 2}
+  m_PrefabInternal: {fileID: 1032882385}
 --- !u!1001 &867160271
 Prefab:
   m_ObjectHideFlags: 0
@@ -746,6 +790,11 @@ Prefab:
       propertyPath: GoldOffset
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114253714130099814, guid: 211d5aec3dc069448af03dd864a671ef,
+        type: 2}
+      propertyPath: Tile
+      value: 
+      objectReference: {fileID: 2578648}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 211d5aec3dc069448af03dd864a671ef, type: 2}
   m_IsPrefabParent: 0
@@ -754,6 +803,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4637896903420434, guid: 211d5aec3dc069448af03dd864a671ef,
     type: 2}
   m_PrefabInternal: {fileID: 867160271}
+--- !u!1 &901312346 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1857221263140412, guid: 211d5aec3dc069448af03dd864a671ef,
+    type: 2}
+  m_PrefabInternal: {fileID: 479496360}
 --- !u!1 &974852676 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1107798341213960, guid: 6f1df56321fa559498f57684bb18b473,
@@ -837,6 +891,11 @@ Prefab:
       propertyPath: TeleportTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114253714130099814, guid: 211d5aec3dc069448af03dd864a671ef,
+        type: 2}
+      propertyPath: Tile
+      value: 
+      objectReference: {fileID: 595776779}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 211d5aec3dc069448af03dd864a671ef, type: 2}
   m_IsPrefabParent: 0
@@ -903,6 +962,11 @@ Prefab:
       propertyPath: DropOffset
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114253714130099814, guid: 211d5aec3dc069448af03dd864a671ef,
+        type: 2}
+      propertyPath: Tile
+      value: 
+      objectReference: {fileID: 692132248}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 211d5aec3dc069448af03dd864a671ef, type: 2}
   m_IsPrefabParent: 0
@@ -911,6 +975,21 @@ Transform:
   m_PrefabParentObject: {fileID: 4637896903420434, guid: 211d5aec3dc069448af03dd864a671ef,
     type: 2}
   m_PrefabInternal: {fileID: 1032882385}
+--- !u!1 &1040099124 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1857221263140412, guid: 211d5aec3dc069448af03dd864a671ef,
+    type: 2}
+  m_PrefabInternal: {fileID: 1407071445}
+--- !u!1 &1105815104 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1857221263140412, guid: 211d5aec3dc069448af03dd864a671ef,
+    type: 2}
+  m_PrefabInternal: {fileID: 1212041232}
+--- !u!1 &1125635361 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1857221263140412, guid: 211d5aec3dc069448af03dd864a671ef,
+    type: 2}
+  m_PrefabInternal: {fileID: 423506473}
 --- !u!1001 &1212041232
 Prefab:
   m_ObjectHideFlags: 0
@@ -969,6 +1048,11 @@ Prefab:
       propertyPath: DropOffset
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114253714130099814, guid: 211d5aec3dc069448af03dd864a671ef,
+        type: 2}
+      propertyPath: Tile
+      value: 
+      objectReference: {fileID: 1105815104}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 211d5aec3dc069448af03dd864a671ef, type: 2}
   m_IsPrefabParent: 0
@@ -977,6 +1061,16 @@ Transform:
   m_PrefabParentObject: {fileID: 4637896903420434, guid: 211d5aec3dc069448af03dd864a671ef,
     type: 2}
   m_PrefabInternal: {fileID: 1212041232}
+--- !u!1 &1212449040 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1857221263140412, guid: 211d5aec3dc069448af03dd864a671ef,
+    type: 2}
+  m_PrefabInternal: {fileID: 1420868601}
+--- !u!1 &1224444433 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1857221263140412, guid: 211d5aec3dc069448af03dd864a671ef,
+    type: 2}
+  m_PrefabInternal: {fileID: 1951620713}
 --- !u!1 &1334156602
 GameObject:
   m_ObjectHideFlags: 0
@@ -1021,6 +1115,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1338921896 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1857221263140412, guid: 211d5aec3dc069448af03dd864a671ef,
+    type: 2}
+  m_PrefabInternal: {fileID: 1807167683}
 --- !u!1001 &1360542647
 Prefab:
   m_ObjectHideFlags: 0
@@ -1079,6 +1178,11 @@ Prefab:
       propertyPath: EnemyTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114253714130099814, guid: 211d5aec3dc069448af03dd864a671ef,
+        type: 2}
+      propertyPath: Tile
+      value: 
+      objectReference: {fileID: 1906774498}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 211d5aec3dc069448af03dd864a671ef, type: 2}
   m_IsPrefabParent: 0
@@ -1150,6 +1254,11 @@ Prefab:
       propertyPath: TeleportTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114253714130099814, guid: 211d5aec3dc069448af03dd864a671ef,
+        type: 2}
+      propertyPath: Tile
+      value: 
+      objectReference: {fileID: 1040099124}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 211d5aec3dc069448af03dd864a671ef, type: 2}
   m_IsPrefabParent: 0
@@ -1216,6 +1325,11 @@ Prefab:
       propertyPath: GoldOffset
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114253714130099814, guid: 211d5aec3dc069448af03dd864a671ef,
+        type: 2}
+      propertyPath: Tile
+      value: 
+      objectReference: {fileID: 1212449040}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 211d5aec3dc069448af03dd864a671ef, type: 2}
   m_IsPrefabParent: 0
@@ -1347,6 +1461,11 @@ Prefab:
       propertyPath: DropOffset
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114253714130099814, guid: 211d5aec3dc069448af03dd864a671ef,
+        type: 2}
+      propertyPath: Tile
+      value: 
+      objectReference: {fileID: 1338921896}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 211d5aec3dc069448af03dd864a671ef, type: 2}
   m_IsPrefabParent: 0
@@ -1355,6 +1474,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4637896903420434, guid: 211d5aec3dc069448af03dd864a671ef,
     type: 2}
   m_PrefabInternal: {fileID: 1807167683}
+--- !u!1 &1906774498 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1857221263140412, guid: 211d5aec3dc069448af03dd864a671ef,
+    type: 2}
+  m_PrefabInternal: {fileID: 1360542647}
 --- !u!1001 &1951620713
 Prefab:
   m_ObjectHideFlags: 0
@@ -1413,6 +1537,11 @@ Prefab:
       propertyPath: GoldOffset
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114253714130099814, guid: 211d5aec3dc069448af03dd864a671ef,
+        type: 2}
+      propertyPath: Tile
+      value: 
+      objectReference: {fileID: 1224444433}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 211d5aec3dc069448af03dd864a671ef, type: 2}
   m_IsPrefabParent: 0
@@ -1421,6 +1550,16 @@ Transform:
   m_PrefabParentObject: {fileID: 4637896903420434, guid: 211d5aec3dc069448af03dd864a671ef,
     type: 2}
   m_PrefabInternal: {fileID: 1951620713}
+--- !u!1 &1965743886 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1857221263140412, guid: 211d5aec3dc069448af03dd864a671ef,
+    type: 2}
+  m_PrefabInternal: {fileID: 114533064}
+--- !u!1 &1972712538 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1857221263140412, guid: 211d5aec3dc069448af03dd864a671ef,
+    type: 2}
+  m_PrefabInternal: {fileID: 643020142}
 --- !u!1001 &1986680102
 Prefab:
   m_ObjectHideFlags: 0
@@ -1488,6 +1627,11 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: dde3846f9a52f30498b8734a78bead76, type: 2}
+    - target: {fileID: 114253714130099814, guid: 211d5aec3dc069448af03dd864a671ef,
+        type: 2}
+      propertyPath: Tile
+      value: 
+      objectReference: {fileID: 13326379}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 211d5aec3dc069448af03dd864a671ef, type: 2}
   m_IsPrefabParent: 0
