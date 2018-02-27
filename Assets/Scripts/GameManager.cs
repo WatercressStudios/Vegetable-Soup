@@ -4,21 +4,30 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private int _turnCounter = 0;
+    private int _turnCounter;
     private int _moveRoll;
-    public int frame;
+    private int _frame;
+    private Vector3 _rightOffset = new Vector3(0, 0, 1.1f);
+    private Vector3 _leftOffset = new Vector3(1.1f, 0, 0);
+    private GameObject _player;
 
-    void Start ()
+    void Start()
     {
-        StartCoroutine(Example());
-	}
+        _player = GameObject.Find("Character");
+        StartCoroutine(InitializeGame());
+    }
+
+    IEnumerator InitializeGame()
+    {
+        yield return new WaitUntil(() => _frame >= 10);
+        GameSequence();
+    }
 
     void Update()
     {
-        if (frame <= 10)
+        if (_frame < 10)
         {
-            Debug.Log("Frame: " + frame);
-            frame++;
+            _frame++;
         }
     }
 
@@ -26,19 +35,11 @@ public class GameManager : MonoBehaviour
     {
         _turnCounter++;
         _moveRoll = GenerateRandomNumber();
-        Debug.Log(_moveRoll);
 
         for (int movements = 0; movements < _moveRoll; movements++)
         {
-            Debug.Log("Making a movement!");
             MoveCharacter();
         }
-    }
-
-    IEnumerator Example()
-    {
-        yield return new WaitUntil(() => frame >= 10);
-        GameSequence();
     }
 
     public int GenerateRandomNumber()
@@ -48,38 +49,23 @@ public class GameManager : MonoBehaviour
 
     public void MoveCharacter()
     {
-        var Player = GameObject.Find("Character");
         var Tile = GameObject.Find("Character").GetComponent<TileMovement>().Tile;
-
-        Debug.Log("Tile is: " + Tile.name);
 
         if (Tile.GetComponent<TileBehaviour>().TopRight)
         {
-            Debug.Log("Top right");
-            Vector3 moveValue = new Vector3(0, 0, 1.1f);
-            Player.transform.position += moveValue;
+            _player.transform.position += _rightOffset;
         }
         else if (Tile.GetComponent<TileBehaviour>().TopLeft)
         {
-            Debug.Log("Top left");
-            Vector3 moveValue = new Vector3(1.1f, 0, 0);
-            Player.transform.position -= moveValue;
+            _player.transform.position -= _leftOffset;
         }
         else if (Tile.GetComponent<TileBehaviour>().BottomRight)
         {
-            Debug.Log("Bottom right");
-            Vector3 moveValue = new Vector3(1.1f, 0, 0);
-            Player.transform.position += moveValue;
+            _player.transform.position += _leftOffset;
         }
         else if (Tile.GetComponent<TileBehaviour>().BottomLeft)
         {
-            Debug.Log("Bottom left");
-            Vector3 moveValue = new Vector3(0, 0, 1.1f);
-            Player.transform.position -= moveValue;
-        }
-        else
-        {
-            Debug.Log("You apparently can't move anywhere!");
+            _player.transform.position -= _rightOffset;
         }
     }
 }
