@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using System;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,45 +14,39 @@ public class GameManager : MonoBehaviour
     private Vector3 _leftOffset = new Vector3(1.1f, 0, 0);
     private GameObject _player;
 
+    public Text RollText;
+    public Text TurnText;
+    public GameObject Tile;
+
     void Start()
     {
         _player = GameObject.Find("Character");
-        StartCoroutine(InitializeGame());
-    }
-
-    IEnumerator InitializeGame()
-    {
-        yield return new WaitUntil(() => _frame >= 10);
-        GameSequence();
     }
 
     void Update()
     {
-        if (_frame < 10)
+        if (_moveRoll == 0 && Input.GetKeyDown("m"))
         {
-            _frame++;
+            GameSequence();
+        }
+        else if (_moveRoll > 0)
+        {
+            MoveCharacter();
+            _moveRoll--;
         }
     }
 
     public void GameSequence()
     {
         _turnCounter++;
+        SetTurnText();
         _moveRoll = GenerateRandomNumber();
-
-        for (int movements = 0; movements < _moveRoll; movements++)
-        {
-            MoveCharacter();
-        }
-    }
-
-    public int GenerateRandomNumber()
-    {
-        return Random.Range(1, 6);
+        SetRollText();
     }
 
     public void MoveCharacter()
     {
-        var Tile = GameObject.Find("Character").GetComponent<TileMovement>().Tile;
+        Tile = GameObject.Find("Character").GetComponent<TileMovement>().Tile;
 
         if (Tile.GetComponent<TileBehaviour>().TopRight)
         {
@@ -67,5 +64,24 @@ public class GameManager : MonoBehaviour
         {
             _player.transform.position -= _rightOffset;
         }
+        else
+        {
+            Debug.Log("Can't Move!");
+        }
+    }
+
+    public int GenerateRandomNumber()
+    {
+        return UnityEngine.Random.Range(1, 6);
+    }
+
+    public void SetRollText()
+    {
+        RollText.text = "Current Roll: " + _moveRoll.ToString();
+    }
+
+    public void SetTurnText()
+    {
+        TurnText.text = "Current Turn: " + _turnCounter.ToString();
     }
 }
