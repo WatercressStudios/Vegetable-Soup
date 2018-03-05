@@ -13,10 +13,10 @@ public class GameManager : MonoBehaviour
     private Vector3 _rightOffset = new Vector3(0, 0, 1.1f);
     private Vector3 _leftOffset = new Vector3(1.1f, 0, 0);
     private GameObject _player;
+    private GameObject _tile;
 
     public Text RollText;
     public Text TurnText;
-    public GameObject Tile;
 
     void Start()
     {
@@ -46,21 +46,21 @@ public class GameManager : MonoBehaviour
 
     public void MoveCharacter()
     {
-        Tile = GameObject.Find("Character").GetComponent<TileMovement>().Tile;
+        _tile = GameObject.Find("Character").GetComponent<TileMovement>().Tile;
 
-        if (Tile.GetComponent<TileBehaviour>().TopRight)
+        if (_tile.GetComponent<TileBehaviour>().TopRight)
         {
             _player.transform.position += _rightOffset;
         }
-        else if (Tile.GetComponent<TileBehaviour>().TopLeft)
+        else if (_tile.GetComponent<TileBehaviour>().TopLeft)
         {
             _player.transform.position -= _leftOffset;
         }
-        else if (Tile.GetComponent<TileBehaviour>().BottomRight)
+        else if (_tile.GetComponent<TileBehaviour>().BottomRight)
         {
             _player.transform.position += _leftOffset;
         }
-        else if (Tile.GetComponent<TileBehaviour>().BottomLeft)
+        else if (_tile.GetComponent<TileBehaviour>().BottomLeft)
         {
             _player.transform.position -= _rightOffset;
         }
