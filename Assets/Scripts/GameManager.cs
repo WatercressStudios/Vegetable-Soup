@@ -82,7 +82,10 @@ public class GameManager : MonoBehaviour
         }
         else if (_tile.GetComponent<TileBehaviour>().DropOffset)
         {
-            Gold -= 10;
+            if (Gold >= 10)
+            {
+                Gold -= 10;
+            }
         }
         else if (_tile.GetComponent<TileBehaviour>().EnemyTrigger)
         {
