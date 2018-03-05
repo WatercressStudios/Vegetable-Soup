@@ -20,12 +20,14 @@ public class GameManager : MonoBehaviour
     public Text TurnText;
     public Text CurrentOption;
     public Text GoldText;
+    public Text WinText;
     public int Gold;
 
     void Start()
     {
         _player = GameObject.Find("Character");
         SetGoldText();
+        SetGoalText();
     }
 
     void Update()
@@ -54,6 +56,11 @@ public class GameManager : MonoBehaviour
         {
             MoveCharacter();
             _moveRoll--;
+
+            if (_moveRoll == 0)
+            {
+                _tileEffectsFlag = true;
+            }
         }
     }
 
@@ -71,7 +78,7 @@ public class GameManager : MonoBehaviour
 
         if (_tile.GetComponent<TileBehaviour>().GoldOffset)
         {
-            Gold += 10;
+            Gold += 15;
         }
         else if (_tile.GetComponent<TileBehaviour>().DropOffset)
         {
@@ -87,7 +94,10 @@ public class GameManager : MonoBehaviour
         }
         else if (_tile.GetComponent<TileBehaviour>().GoalCheckTrigger)
         {
-            //TODO
+            if (Gold >= 40)
+            {
+                SetWinText();
+            }
         }
 
         _tileEffectsFlag = false;
@@ -116,11 +126,6 @@ public class GameManager : MonoBehaviour
         else
         {
             Debug.Log("Can't Move!");
-        }
-
-        if(_moveRoll-1 == 0)
-        {
-            _tileEffectsFlag = true;
         }
     }
 
@@ -152,5 +157,15 @@ public class GameManager : MonoBehaviour
     public void SetGoldText()
     {
         GoldText.text = "Gold: " + Gold.ToString();
+    }
+
+    public void SetWinText()
+    {
+        WinText.text = "You win!";
+    }
+
+    public void SetGoalText()
+    {
+        WinText.text = "Collect 40 gold to win!";
     }
 }
