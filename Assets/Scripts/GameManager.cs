@@ -14,18 +14,30 @@ public class GameManager : MonoBehaviour
     private Vector3 _leftOffset = new Vector3(1.1f, 0, 0);
     private GameObject _player;
     private GameObject _tile;
+    private bool _tileEffectsFlag;
 
     public Text RollText;
     public Text TurnText;
     public Text CurrentOption;
+    public Text GoldText;
+    public Text WinText;
+    public int Gold;
 
     void Start()
     {
         _player = GameObject.Find("Character");
+        SetGoldText();
+        SetGoalText();
     }
 
     void Update()
     {
+        if (_tileEffectsFlag == true)
+        {
+            TileEffects();
+            SetGoldText();
+        }
+
         if (_moveRoll == 0)
         {
             SetCurrentOptionToRoll();
@@ -44,6 +56,11 @@ public class GameManager : MonoBehaviour
         {
             MoveCharacter();
             _moveRoll--;
+
+            if (_moveRoll == 0)
+            {
+                _tileEffectsFlag = true;
+            }
         }
     }
 
@@ -53,6 +70,40 @@ public class GameManager : MonoBehaviour
         SetTurnText();
         _moveRoll = GenerateRandomNumber();
         SetRollText();
+    }
+
+    public void TileEffects()
+    {
+        _tile = GameObject.Find("Character").GetComponent<TileMovement>().Tile;
+
+        if (_tile.GetComponent<TileBehaviour>().GoldOffset)
+        {
+            Gold += 15;
+        }
+        else if (_tile.GetComponent<TileBehaviour>().DropOffset)
+        {
+            if (Gold >= 10)
+            {
+                Gold -= 10;
+            }
+        }
+        else if (_tile.GetComponent<TileBehaviour>().EnemyTrigger)
+        {
+            Gold += 5;
+        }
+        else if (_tile.GetComponent<TileBehaviour>().TeleportTrigger)
+        {
+            //TODO
+        }
+        else if (_tile.GetComponent<TileBehaviour>().GoalCheckTrigger)
+        {
+            if (Gold >= 40)
+            {
+                SetWinText();
+            }
+        }
+
+        _tileEffectsFlag = false;
     }
 
     public void MoveCharacter()
@@ -106,9 +157,18 @@ public class GameManager : MonoBehaviour
         CurrentOption.text = "Press M to move!";
     }
 
-    private IEnumerator Pause()
+    public void SetGoldText()
     {
-        yield return new WaitForSeconds(1);
-        MoveCharacter();
+        GoldText.text = "Gold: " + Gold.ToString();
+    }
+
+    public void SetWinText()
+    {
+        WinText.text = "You win!";
+    }
+
+    public void SetGoalText()
+    {
+        WinText.text = "Collect 40 gold to win!";
     }
 }
