@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
 
     public Text RollText;
     public Text TurnText;
+    public Text CurrentOption;
 
     void Start()
     {
@@ -25,6 +26,16 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if (_moveRoll == 0)
+        {
+            SetCurrentOptionToRoll();
+        }
+        else
+        {
+            SetCurrentOptionToMove();
+        }
+
+
         if (_moveRoll == 0 && Input.GetKeyDown("r"))
         {
             GameSequence();
@@ -83,6 +94,16 @@ public class GameManager : MonoBehaviour
     public void SetTurnText()
     {
         TurnText.text = "Current Turn: " + _turnCounter.ToString();
+    }
+
+    public void SetCurrentOptionToRoll()
+    {
+        CurrentOption.text = "Press R to roll!";
+    }
+
+    public void SetCurrentOptionToMove()
+    {
+        CurrentOption.text = "Press M to move!";
     }
 
     private IEnumerator Pause()
