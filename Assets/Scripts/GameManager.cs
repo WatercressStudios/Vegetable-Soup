@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using System;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,62 +13,102 @@ public class GameManager : MonoBehaviour
     private Vector3 _rightOffset = new Vector3(0, 0, 1.1f);
     private Vector3 _leftOffset = new Vector3(1.1f, 0, 0);
     private GameObject _player;
+    private GameObject _tile;
+
+    public Text RollText;
+    public Text TurnText;
+    public Text CurrentOption;
 
     void Start()
     {
         _player = GameObject.Find("Character");
-        StartCoroutine(InitializeGame());
-    }
-
-    IEnumerator InitializeGame()
-    {
-        yield return new WaitUntil(() => _frame >= 10);
-        GameSequence();
     }
 
     void Update()
     {
-        if (_frame < 10)
+        if (_moveRoll == 0)
         {
-            _frame++;
+            SetCurrentOptionToRoll();
+        }
+        else
+        {
+            SetCurrentOptionToMove();
+        }
+
+
+        if (_moveRoll == 0 && Input.GetKeyDown("r"))
+        {
+            GameSequence();
+        }
+        else if (_moveRoll > 0 && Input.GetKeyDown("m"))
+        {
+            MoveCharacter();
+            _moveRoll--;
         }
     }
 
     public void GameSequence()
     {
         _turnCounter++;
+        SetTurnText();
         _moveRoll = GenerateRandomNumber();
+        SetRollText();
+    }
 
-        for (int movements = 0; movements < _moveRoll; movements++)
+    public void MoveCharacter()
+    {
+        _tile = GameObject.Find("Character").GetComponent<TileMovement>().Tile;
+
+        if (_tile.GetComponent<TileBehaviour>().TopRight)
         {
-            MoveCharacter();
+            _player.transform.position += _rightOffset;
+        }
+        else if (_tile.GetComponent<TileBehaviour>().TopLeft)
+        {
+            _player.transform.position -= _leftOffset;
+        }
+        else if (_tile.GetComponent<TileBehaviour>().BottomRight)
+        {
+            _player.transform.position += _leftOffset;
+        }
+        else if (_tile.GetComponent<TileBehaviour>().BottomLeft)
+        {
+            _player.transform.position -= _rightOffset;
+        }
+        else
+        {
+            Debug.Log("Can't Move!");
         }
     }
 
     public int GenerateRandomNumber()
     {
-        return Random.Range(1, 6);
+        return UnityEngine.Random.Range(1, 6);
     }
 
-    public void MoveCharacter()
+    public void SetRollText()
     {
-        var Tile = GameObject.Find("Character").GetComponent<TileMovement>().Tile;
+        RollText.text = "Current Roll: " + _moveRoll.ToString();
+    }
 
-        if (Tile.GetComponent<TileBehaviour>().TopRight)
-        {
-            _player.transform.position += _rightOffset;
-        }
-        else if (Tile.GetComponent<TileBehaviour>().TopLeft)
-        {
-            _player.transform.position -= _leftOffset;
-        }
-        else if (Tile.GetComponent<TileBehaviour>().BottomRight)
-        {
-            _player.transform.position += _leftOffset;
-        }
-        else if (Tile.GetComponent<TileBehaviour>().BottomLeft)
-        {
-            _player.transform.position -= _rightOffset;
-        }
+    public void SetTurnText()
+    {
+        TurnText.text = "Current Turn: " + _turnCounter.ToString();
+    }
+
+    public void SetCurrentOptionToRoll()
+    {
+        CurrentOption.text = "Press R to roll!";
+    }
+
+    public void SetCurrentOptionToMove()
+    {
+        CurrentOption.text = "Press M to move!";
+    }
+
+    private IEnumerator Pause()
+    {
+        yield return new WaitForSeconds(1);
+        MoveCharacter();
     }
 }
