@@ -9,5 +9,30 @@ public class TileMovement : MonoBehaviour
     void OnCollisionEnter (Collision collision)
     {
         Tile = collision.gameObject;
+
+        /*
+        var GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+        if (Tile.GetComponent<TileBehaviour>().GoldOffset)
+        {
+            GameManager.Gold += 10;
+        }
+        else if (Tile.GetComponent<TileBehaviour>().DropOffset)
+        {
+            GameManager.Gold -= 10;
+        }
+        else if (Tile.GetComponent<TileBehaviour>().EnemyTrigger)
+        {
+            GameManager.Gold += 5;
+        }
+        else if (Tile.GetComponent<TileBehaviour>().TeleportTrigger)
+        {
+            //TODO
+        }
+        else if (Tile.GetComponent<TileBehaviour>().GoalCheckTrigger)
+        {
+            //TODO
+        }
+        */
     }
 }
