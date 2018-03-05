@@ -25,11 +25,11 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (_moveRoll == 0 && Input.GetKeyDown("m"))
+        if (_moveRoll == 0 && Input.GetKeyDown("r"))
         {
             GameSequence();
         }
-        else if (_moveRoll > 0)
+        else if (_moveRoll > 0 && Input.GetKeyDown("m"))
         {
             MoveCharacter();
             _moveRoll--;
@@ -83,5 +83,11 @@ public class GameManager : MonoBehaviour
     public void SetTurnText()
     {
         TurnText.text = "Current Turn: " + _turnCounter.ToString();
+    }
+
+    private IEnumerator Pause()
+    {
+        yield return new WaitForSeconds(1);
+        MoveCharacter();
     }
 }
